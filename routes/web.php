@@ -13,6 +13,10 @@ use App\Http\Controllers\Backend;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Auth::routes();
 
 Route::get('dashboard', [Backend\DashboardController::class, 'index'])->name('dashboard');

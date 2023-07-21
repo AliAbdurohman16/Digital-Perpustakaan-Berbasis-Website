@@ -7,7 +7,7 @@
     <div class="layout-specing">
         <div class="d-flex align-items-center justify-content-between">
             <div>
-                <h6 class="text-muted mb-1">Welcome back, {{ Auth::user()->first_name }}!</h6>
+                <h6 class="text-muted mb-1">Welcome back, {{ Auth::user()->fullname }}!</h6>
                 <h5 class="mb-0">Dashboard</h5>
             </div>
         </div>

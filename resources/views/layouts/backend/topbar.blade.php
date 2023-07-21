@@ -2,13 +2,6 @@
 <div class="top-header">
     <div class="header-bar d-flex justify-content-between border-bottom">
         <div class="d-flex align-items-center">
-            <a href="#" class="logo-icon me-3">
-                <img src="{{ asset('backend') }}/images/logo-icon.png" height="30" class="small" alt="">
-                <span class="big">
-                    <img src="{{ asset('backend') }}/images/logo-dark.png" height="24" class="logo-light-mode" alt="">
-                    <img src="{{ asset('backend') }}/images/logo-light.png" height="24" class="logo-dark-mode" alt="">
-                </span>
-            </a>
             <a id="close-sidebar" class="btn btn-icon btn-soft-light" href="javascript:void(0)">
                 <i class="ti ti-menu-2"></i>
             </a>
@@ -32,13 +25,11 @@
                                 <img src="{{ asset('storage/users/' . Auth::user()->image) }}" class="avatar avatar-md-sm rounded-circle border shadow" alt="avatar">
                             @endif
                             <div class="flex-1 ms-2">
-                                <span class="d-block">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span>
-                                <small class="text-muted">{{ Auth::user()->hasRole('admin') ? 'Administrator' : 'Owner' }}</small>
+                                <span class="d-block">{{ Auth::user()->fullname }}</span>
+                                <small class="text-muted">{{ Auth::user()->hasRole('admin') ? 'Administrator' : 'User' }}</small>
                             </div>
                         </a>
                         <a class="dropdown-item text-dark" href="{{ route('dashboard') }}"><span class="mb-0 d-inline-block me-1"><i class="ti ti-home"></i></span> Dashboard</a>
-                        <a class="dropdown-item text-dark" href="{{ route('profile.index') }}"><span class="mb-0 d-inline-block me-1"><i class="ti ti-user"></i></span> Profil</a>
-                        <a class="dropdown-item text-dark" href="{{ route('change-password.index') }}"><span class="mb-0 d-inline-block me-1"><i class="ti ti-key"></i></span> Ganti Kata Sandi</a>
                         <div class="dropdown-divider border-top"></div>
                         <a class="dropdown-item text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><span class="mb-0 d-inline-block me-1"><i class="ti ti-logout"></i></span> Keluar</a>

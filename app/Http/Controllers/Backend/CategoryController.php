@@ -4,36 +4,53 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        # code...
+        // get data
+        $categories = Category::all();
+
+        return view('backend.categories.index', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        return $request->all();
+        // insert to table categories
+        Category::create([
+            'name' => $request->name,
+            'slug'  => Str::slug($request->name, '-')
+        ]);
+
+        return redirect()->back()->with('message', 'Kategori berhasil ditambahkan!');
     }
 
-    public function show($id)
+    public function update(Request $request, $id)
     {
-        # code...
-    }
+        // get data find or fail by id
+        $category = Category::findOrFail($id);
 
-    public function edit($id)
-    {
-        # code...
-    }
+        // update to table categories
+        $category->update([
+            'name' => $request->name,
+            'slug'  => Str::slug($request->name, '-')
+        ]);
 
-    public function update(Request $request,$id)
-    {
-        return $request->all();
+        return redirect()->back()->with('message', 'Kategori berhasil diubah!');
     }
 
     public function destroy($id)
     {
-        # code...
+        // get data find or fail by id
+        $category = Category::findOrFail($id);
+
+        // delete data
+        $category->delete();
+
+        return response()->json(['message' => 'Kategori berhasil dihapus!']);
     }
 }

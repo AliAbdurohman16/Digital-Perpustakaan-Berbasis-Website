@@ -4,7 +4,7 @@
         <div class="row align-items-center">
             <div class="col">
                 <div class="text-sm-start text-center mx-md-2">
-                    <p class="mb-0 text-muted">© <script>document.write(new Date().getFullYear())</script> Rania Sport.</p>
+                    <p class="mb-0 text-muted">© <script>document.write(new Date().getFullYear())</script> Digital Perpustakaan Berbasis Website.</p>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
