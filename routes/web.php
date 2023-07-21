@@ -17,6 +17,6 @@ Auth::routes();
 
 Route::get('dashboard', [Backend\DashboardController::class, 'index'])->name('dashboard');
 Route::resources([
-    'categories', Backend\CategoryController::class,
-    'books', Backend\BookController::class,
+    'categories' => Backend\CategoryController::class,
+    'books' => Backend\BookController::class,
 ]);
