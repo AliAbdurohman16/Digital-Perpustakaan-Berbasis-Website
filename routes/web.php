@@ -24,3 +24,5 @@ Route::resources([
     'categories' => Backend\CategoryController::class,
     'books' => Backend\BookController::class,
 ]);
+Route::get('export-books-excel', [Backend\BookController::class, 'exportBooksExcel'])->name('export.books.excel');
+Route::get('export-books-pdf', [Backend\BookController::class, 'exportBooksPdf'])->name('export.books.pdf');

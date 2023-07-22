@@ -27,8 +27,8 @@
             <div class="col-12 mt-4">
                 <div class="d-grid gap-2 d-md-flex">
                     <a href="{{ route('books.create') }}" class="btn btn-primary mb-3 btn-sm">Tambah Data +</a>
-                    <a href="{{ route('books.create') }}" class="btn btn-success mb-3 btn-sm">Export Excel</a>
-                    <a href="{{ route('books.create') }}" class="btn btn-danger mb-3 btn-sm">Export PDF</a>
+                    <a href="{{ route('export.books.excel') }}" class="btn btn-success mb-3 btn-sm">Export Excel</a>
+                    <a href="{{ route('export.books.pdf') }}" class="btn btn-danger mb-3 btn-sm">Export PDF</a>
                 </div>
                 <div class="card shadow rounded">
                     <div class="card-body">

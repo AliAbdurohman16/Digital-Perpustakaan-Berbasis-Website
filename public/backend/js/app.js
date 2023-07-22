@@ -1,41 +1,3 @@
-/* Template Name: Landrick - Saas & Software Landing Page Template
-   Author: Shreethemes
-   E-mail: support@shreethemes.in
-   Created: August 2019
-   Version: 4.2.0
-   Updated: March 2022
-   File Description: Main JS file of the template
-*/
-
-
-/*********************************/
-/*         INDEX                 */
-/*================================
- *     01.  Loader               *
- *     02.  Toggle Menus         *
- *     03.  Active Menu          *
- *     04.  Clickable Menu       *
- *     05.  Back to top          *
- *     06.  Feather icon         *
- *     06.  DD Menu              *
- *     06.  Active Sidebar Menu  *
- ================================*/
-
-
- window.onload = function loader() {
-    // Preloader
-    if(document.getElementById('preloader')){
-        setTimeout(() => {
-            document.getElementById('preloader').style.visibility = 'hidden';
-            document.getElementById('preloader').style.opacity = '0';
-        }, 350);
-    }
-
-    // Menus
-    activateMenu();
-    activateSidebarMenu();
-}
-
 //Menu
 // Toggle menu
 function toggleMenu() {
@@ -173,7 +135,7 @@ if(document.getElementById("sidebar")){
 function windowScroll() {
     var navbar = document.getElementById("topnav");
     if(navbar === null) {
-        
+
     }else if( document.body.scrollTop >= 50 ||
     document.documentElement.scrollTop >= 50){
         navbar.classList.add("nav-sticky");
@@ -195,7 +157,7 @@ window.onscroll = function () {
 function scrollFunction() {
     var mybutton = document.getElementById("back-to-top");
     if(mybutton === null) {
-        
+
     }else if( document.body.scrollTop > 500 || document.documentElement.scrollTop > 500){
         mybutton.style.display = "block";
     }else {
@@ -206,19 +168,6 @@ function scrollFunction() {
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-}
-
-//Feather icon
-feather.replace();
-
-// dd-menu
-if(document.getElementsByClassName("dd-menu")) {
-    var ddmenu = document.getElementsByClassName("dd-menu");
-    for(var i = 0, len = ddmenu.length; i < len; i++) {
-        ddmenu[i].onclick = function (elem) {
-            elem.stopPropagation();
-        }
-    }
 }
 
 //ACtive Sidebar
@@ -232,39 +181,3 @@ if(document.getElementsByClassName("dd-menu")) {
         }
     }
 })();
-
-
-//Validation Shop Checkouts
-(function () {
-    'use strict'
-
-    if(document.getElementsByClassName('needs-validation').length > 0) {
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-        })
-    }
-})();
-
-//Tooltip
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-});
-
-//Popovers
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-})

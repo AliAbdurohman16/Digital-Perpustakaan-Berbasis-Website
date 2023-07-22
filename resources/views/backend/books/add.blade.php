@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Buku')
+@section('title', 'Tambah Buku')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('backend') }}/libs/select2/select2.min.css"/>

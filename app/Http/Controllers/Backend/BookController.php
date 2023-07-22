@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BooksExportExcel;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class BookController extends Controller
 {
@@ -167,4 +171,38 @@ class BookController extends Controller
 
         return response()->json(['message' => 'Buku berhasil dihapus!']);
     }
+
+    public function exportBooksExcel()
+    {
+        // get user
+        $user = Auth::user();
+
+        // get data
+        $books = ($user->hasRole('admin')) ? Book::all() : Book::where('user_id', Auth::id())->get();
+
+        // Define the Excel file name
+        $fileName = 'books_export_' . date('Ymd_His') . '.xlsx';
+
+        // Generate the Excel file using the Maatwebsite\Excel library
+        return Excel::download(new BooksExportExcel($books), $fileName);
+    }
+
+    public function exportBooksPdf()
+    {
+        // get user
+        $user = Auth::user();
+
+        // get data
+        $books = ($user->hasRole('admin')) ? Book::all() : Book::where('user_id', Auth::id())->get();
+
+        // Pas the data to the PDF view
+        $pdf = PDF::loadView('pdf.books', ['books' => $books]);
+
+        // set the paper size and orientation
+        $pdf->setPaper('A4', 'landscape');
+
+        // Download the PDF file with a custom name
+        return $pdf->download('books_export_' . date('Ymd_His') . '.pdf');
+    }
+
 }

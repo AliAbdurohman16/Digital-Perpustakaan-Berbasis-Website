@@ -7,8 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Css -->
-        {{-- <link href="{{ asset('backend') }}/libs/simplebar/simplebar.min.css" rel="stylesheet"> --}}
         <!-- Bootstrap Css -->
         <link href="{{ asset('backend') }}/css/bootstrap.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -21,17 +19,6 @@
     </head>
 
     <body>
-        <!-- Loader -->
-        <!-- <div id="preloader">
-            <div id="status">
-                <div class="spinner">
-                    <div class="double-bounce1"></div>
-                    <div class="double-bounce2"></div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Loader -->
-
         <div class="page-wrapper toggled">
             @include('layouts.backend.sidebar')
 
@@ -50,8 +37,6 @@
         <!-- Javascript -->
         <script src="{{ asset('backend') }}/js/jquery.min.js"></script>
         <script src="{{ asset('backend') }}/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ asset('backend') }}/libs/feather-icons/feather.min.js"></script>
-        {{-- <script src="{{ asset('backend') }}/libs/simplebar/simplebar.min.js"></script> --}}
         @yield('javascript')
         <!-- Main Js -->
         <script src="{{ asset('backend') }}/js/app.js"></script>
