@@ -28,7 +28,7 @@ class BooksExportExcel implements FromCollection, WithHeadings
                 'Judul' => $book->title,
                 'Kategori' => $book->category->name,
                 'Jumlah' => $book->amount,
-                'Pengupload' => (Auth::user()->hasRole('admin')) ? $book->user->fullname : null,
+                'Pengupload' => $book->user->fullname,
                 'File' => asset('storage/files/' . $book->file_book),
                 'Deskripsi' => strip_tags($book->description),
             ];
@@ -45,7 +45,7 @@ class BooksExportExcel implements FromCollection, WithHeadings
             'Judul',
             'Kategori',
             'Jumlah',
-            (Auth::user()->hasRole('admin')) ? 'Pengupload' : '',
+            'Pengupload',
             'File',
             'Deskripsi',
         ];

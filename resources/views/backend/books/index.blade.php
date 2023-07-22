@@ -52,9 +52,7 @@
                                         <th class="border-bottom p-3">Judul</th>
                                         <th class="border-bottom p-3">Kategori</th>
                                         <th class="border-bottom p-3">Jumlah</th>
-                                        @if (Auth::user()->hasRole('admin'))
                                         <th class="border-bottom p-3">Pengupload</th>
-                                        @endif
                                         <th class="border-bottom p-3">Aksi</th>
                                     </tr>
                                 </thead>
@@ -67,9 +65,7 @@
                                             <td class="p-3">{{ $book->title }}</td>
                                             <td class="p-3">{{ $book->category->name }}</td>
                                             <td class="p-3">{{ $book->amount }}</td>
-                                            @if (Auth::user()->hasRole('admin'))
                                             <td class="p-3">{{ $book->user->fullname }}</td>
-                                            @endif
                                             <td style="width: 20%;">
                                                 <a href="{{ asset('storage/files/' . $book->file_book) }}" class="btn btn-primary btn-sm mb-2" target="_blank">File PDF</a>
                                                 <a href="{{ route('books.show', $book->id) }}" class="btn btn-info btn-sm mb-2">Detail</a>

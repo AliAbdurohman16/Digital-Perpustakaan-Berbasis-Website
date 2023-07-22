@@ -32,9 +32,7 @@
                 <th class="border-bottom p-3">Judul</th>
                 <th class="border-bottom p-3">Kategori</th>
                 <th class="border-bottom p-3">Jumlah</th>
-                @if (Auth::user()->hasRole('admin'))
                 <th class="border-bottom p-3">Pengupload</th>
-                @endif
                 <th class="border-bottom p-3">File</th>
             </tr>
         </thead>
@@ -46,9 +44,7 @@
                     <td class="p-3">{{ $book->title }}</td>
                     <td class="p-3">{{ $book->category->name }}</td>
                     <td class="p-3">{{ $book->amount }}</td>
-                    @if (Auth::user()->hasRole('admin'))
                     <td class="p-3">{{ $book->user->fullname }}</td>
-                    @endif
                     <td class="p-3">{{ $book->file_book ? asset('storage/files/' . $book->file_book) : 'No File' }}</td>
                 </tr>
             @endforeach
