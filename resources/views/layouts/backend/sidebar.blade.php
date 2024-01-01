@@ -9,6 +9,7 @@
             <li><a href="{{ route('dashboard') }}"><i class="uil uil-estate me-2"></i>Dashboard</a></li>
             <li><a href="{{ route('categories.index') }}"><i class="uil uil-apps me-2"></i>Kategori</a></li>
             <li><a href="{{ route('books.index') }}"><i class="uil uil-book me-2"></i>Buku</a></li>
+            <li><a href="{{ route('users.index') }}"><i class="uil uil-user me-2"></i>Pengguna</a></li>
         </ul>
         <!-- sidebar-menu  -->
     </div>
