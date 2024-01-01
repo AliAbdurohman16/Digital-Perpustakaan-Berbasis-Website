@@ -69,6 +69,7 @@ class BookController extends Controller
         Book::create([
             'cover' => $coverName,
             'title' => $request->title,
+            'slug'  => Str::slug($request->title, '-'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
             'amount' => $request->amount,
@@ -141,6 +142,7 @@ class BookController extends Controller
         $book->update([
             'cover' => $coverName,
             'title' => $request->title,
+            'slug'  => Str::slug($request->title, '-'),
             'category_id' => $request->category,
             'user_id' => Auth::user()->id,
             'amount' => $request->amount,
